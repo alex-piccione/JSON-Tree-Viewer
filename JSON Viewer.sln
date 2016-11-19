@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON Viewer", "JSON Viewer.csproj", "{EB2E042C-5214-441B-863E-E528B4D0AB50}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{1BE841F1-F267-47EC-B406-C40F0C61FBBC}"
+	ProjectSection(SolutionItems) = preProject
+		Create NuGet.bat = Create NuGet.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

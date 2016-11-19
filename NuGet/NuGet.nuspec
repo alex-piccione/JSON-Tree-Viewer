@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Alex75.JsonViewer</id>
+    <version>0.1</version>
+    <authors>Alessandro Piccione</authors>
+    <owners>Alessandro Piccione</owners>
+    <title>Alex75.JsonViewer</title>
+    <description>Windows Form control for showing a JSON file content.</description>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Currently under development.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags></tags>
+    <dependencies>
+      <!--<dependency id="SampleDependency" version="1.0" />-->
+    </dependencies>
+  </metadata>
+  <!--<files>
+    <file src="..\README.md" target="" ></file>
+  </files>-->
+</package>
+
