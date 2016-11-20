@@ -29,7 +29,7 @@ namespace Alex75.JsonViewer.WindowsForm
         {
             Nodes.Clear();            
 
-            var rootNode = new JsonTreeNode(NodeType.Object, "(root)");
+            var rootNode = new JsonTreeNode(NodeType.Object, "/");
             Nodes.Add(rootNode);
             SelectedNode = rootNode;
 

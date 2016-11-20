@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{1BE841F1
 	ProjectSection(SolutionItems) = preProject
 		NuGet\Create NuGet.bat = NuGet\Create NuGet.bat
 		JSON Viewer\JSON Viewer.csproj.nuspec = JSON Viewer\JSON Viewer.csproj.nuspec
+		NuGet\Publish NuGet package.bat = NuGet\Publish NuGet package.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{29DB0C38-A57A-4A1C-8E1D-B0AF5067212F}"
