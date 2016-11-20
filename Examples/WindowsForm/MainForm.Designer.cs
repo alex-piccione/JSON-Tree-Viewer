@@ -28,25 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.jsonTreeView = new Alex75.JsonViewer.WindowsForm.JsonTreeView();
             this.loadJsonButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.jsonTreeView = new Alex75.JsonViewer.WindowsForm.JsonTreeView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.topPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // jsonTreeView
-            // 
-            this.jsonTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jsonTreeView.Location = new System.Drawing.Point(0, 0);
-            this.jsonTreeView.Name = "jsonTreeView";
-            this.jsonTreeView.Size = new System.Drawing.Size(282, 253);
-            this.jsonTreeView.TabIndex = 0;
             // 
             // loadJsonButton
             // 
             this.loadJsonButton.Location = new System.Drawing.Point(3, 3);
             this.loadJsonButton.Name = "loadJsonButton";
-            this.loadJsonButton.Size = new System.Drawing.Size(110, 23);
+            this.loadJsonButton.Size = new System.Drawing.Size(110, 46);
             this.loadJsonButton.TabIndex = 1;
             this.loadJsonButton.Text = "Load JSON";
             this.loadJsonButton.UseVisualStyleBackColor = true;
@@ -54,27 +48,42 @@
             // 
             // topPanel
             // 
-            this.topPanel.AutoSize = true;
-            this.topPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.topPanel.Controls.Add(this.loadJsonButton);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(282, 29);
+            this.topPanel.Size = new System.Drawing.Size(282, 54);
             this.topPanel.TabIndex = 2;
+            // 
+            // jsonTreeView
+            // 
+            this.jsonTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jsonTreeView.Location = new System.Drawing.Point(0, 0);
+            this.jsonTreeView.Name = "jsonTreeView";
+            this.jsonTreeView.Size = new System.Drawing.Size(282, 199);
+            this.jsonTreeView.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.jsonTreeView);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(282, 199);
+            this.panel1.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.jsonTreeView);
             this.Name = "MainForm";
             this.Text = "Example";
             this.topPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -83,6 +92,7 @@
         private Alex75.JsonViewer.WindowsForm.JsonTreeView jsonTreeView;
         private System.Windows.Forms.Button loadJsonButton;
         private System.Windows.Forms.Panel topPanel;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

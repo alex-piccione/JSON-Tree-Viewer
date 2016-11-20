@@ -10,3 +10,5 @@ D:\Programming\.Net works\JSON Viewer\Examples\WindowsForm\obj\Debug\Alex75.Json
 D:\Programming\.Net works\JSON Viewer\Examples\WindowsForm\obj\Debug\WindowsForm.csproj.GenerateResource.Cache
 D:\Programming\.Net works\JSON Viewer\Examples\WindowsForm\obj\Debug\Alex75.JsonViewer.Examples.WindowsForm.exe
 D:\Programming\.Net works\JSON Viewer\Examples\WindowsForm\obj\Debug\Alex75.JsonViewer.Examples.WindowsForm.pdb
+D:\Programming\.Net works\JSON Viewer\Examples\WindowsForm\bin\Debug\Newtonsoft.Json.dll
+D:\Programming\.Net works\JSON Viewer\Examples\WindowsForm\bin\Debug\Newtonsoft.Json.xml
