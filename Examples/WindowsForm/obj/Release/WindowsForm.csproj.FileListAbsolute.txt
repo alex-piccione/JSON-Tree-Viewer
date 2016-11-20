@@ -1,0 +1,12 @@
+D:\Programming\.Net works\JSON\Examples\WindowsForm\bin\Release\Alex75.JsonViewer.Examples.WindowsForm.exe.config
+D:\Programming\.Net works\JSON\Examples\WindowsForm\bin\Release\Alex75.JsonViewer.Examples.WindowsForm.exe
+D:\Programming\.Net works\JSON\Examples\WindowsForm\bin\Release\Alex75.JsonViewer.Examples.WindowsForm.pdb
+D:\Programming\.Net works\JSON\Examples\WindowsForm\bin\Release\Alex75.JsonViewer.dll
+D:\Programming\.Net works\JSON\Examples\WindowsForm\bin\Release\Alex75.JsonViewer.pdb
+D:\Programming\.Net works\JSON\Examples\WindowsForm\obj\Release\WindowsForm.csprojResolveAssemblyReference.cache
+D:\Programming\.Net works\JSON\Examples\WindowsForm\obj\Release\Alex75.JsonViewer.Examples.WindowsForm.Properties.Resources.resources
+D:\Programming\.Net works\JSON\Examples\WindowsForm\obj\Release\WindowsForm.csproj.GenerateResource.Cache
+D:\Programming\.Net works\JSON\Examples\WindowsForm\obj\Release\Alex75.JsonViewer.Examples.WindowsForm.exe
+D:\Programming\.Net works\JSON\Examples\WindowsForm\obj\Release\Alex75.JsonViewer.Examples.WindowsForm.pdb
+D:\Programming\.Net works\JSON\Examples\WindowsForm\obj\Release\WindowsForm.MainForm.resources
+D:\Programming\.Net works\JSON\Examples\WindowsForm\bin\Release\Data\Example.json

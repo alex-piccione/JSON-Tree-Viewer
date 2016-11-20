@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Alex75.JsonViewer.Windows_Form
+namespace Alex75.JsonViewer.WindowsForm
 {
-    public partial class TreeView : UserControl
+    public class JsonTreeView : TreeView
     {
-        public TreeView()
+        public void ShowJson(string json)
         {
-            InitializeComponent();
+            // not already implemented
         }
     }
 }

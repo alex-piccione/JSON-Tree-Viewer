@@ -3,12 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON Viewer", "JSON Viewer.csproj", "{EB2E042C-5214-441B-863E-E528B4D0AB50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON Viewer", "JSON Viewer\JSON Viewer.csproj", "{EB2E042C-5214-441B-863E-E528B4D0AB50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{1BE841F1-F267-47EC-B406-C40F0C61FBBC}"
 	ProjectSection(SolutionItems) = preProject
-		Create NuGet.bat = Create NuGet.bat
+		NuGet\Create NuGet.bat = NuGet\Create NuGet.bat
+		NuGet\NuGet.nuspec = NuGet\NuGet.nuspec
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{29DB0C38-A57A-4A1C-8E1D-B0AF5067212F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1DC3EDDD-3F53-4A5D-9576-16B5276E2371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsForm", "Examples\WindowsForm\WindowsForm.csproj", "{4D52E1C8-A8D7-4455-8098-9A0B6633E515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,8 +27,15 @@ Global
 		{EB2E042C-5214-441B-863E-E528B4D0AB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB2E042C-5214-441B-863E-E528B4D0AB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB2E042C-5214-441B-863E-E528B4D0AB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D52E1C8-A8D7-4455-8098-9A0B6633E515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D52E1C8-A8D7-4455-8098-9A0B6633E515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D52E1C8-A8D7-4455-8098-9A0B6633E515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D52E1C8-A8D7-4455-8098-9A0B6633E515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4D52E1C8-A8D7-4455-8098-9A0B6633E515} = {29DB0C38-A57A-4A1C-8E1D-B0AF5067212F}
 	EndGlobalSection
 EndGlobal
