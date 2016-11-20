@@ -1,4 +1,6 @@
-﻿namespace WindowsForm
+﻿using Alex75.JsonViewer.WindowsForm;
+
+namespace WindowsForm
 {
     partial class MainForm
     {
@@ -89,7 +91,7 @@
 
         #endregion
 
-        private Alex75.JsonViewer.WindowsForm.JsonTreeView jsonTreeView;
+        private JsonTreeView jsonTreeView;
         private System.Windows.Forms.Button loadJsonButton;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel panel1;

@@ -12,6 +12,9 @@ using Alex75.JsonViewer.BusinessObjects;
 
 namespace Alex75.JsonViewer.WindowsForm
 {
+    [Browsable(false)]
+    [DesignTimeVisible(false)]
+    [Designer("JSON Tree View")]
     public class JsonTreeView : TreeView
     {
         public void ShowJson(string jsonString)
@@ -21,6 +24,7 @@ namespace Alex75.JsonViewer.WindowsForm
             LoadTree(json);
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private void LoadTree(JObject json)
         {
             Nodes.Clear();            
