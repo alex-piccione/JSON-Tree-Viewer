@@ -1,6 +1,11 @@
 ﻿{
     "glossary": {
         "title": "example glossary",
+        "colors": [
+            "red",
+            "green",
+            "blue"
+        ],
         "GlossDiv": {
             "title": "S",
             "GlossList": {

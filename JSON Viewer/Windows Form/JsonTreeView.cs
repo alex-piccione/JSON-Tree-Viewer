@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using Alex75.JsonViewer.BusinessObjects;
+using System.Resources;
+using System.Collections;
 
 namespace Alex75.JsonViewer.WindowsForm
 {
@@ -17,10 +19,50 @@ namespace Alex75.JsonViewer.WindowsForm
     [Designer("JSON Tree View")]
     public class JsonTreeView : TreeView
     {
+        private const string IMAGE_KEY_ARRAY_ITEM = "Array item";
+
+        public JsonTreeView()
+        {
+            LoadImgaeList();
+        }
+
+        private void LoadImgaeList()
+        {
+            //System.Resources.arra
+            ImageList treeImages = new ImageList();
+            treeImages.ImageSize = new Size(16, 16);
+            ComponentResourceManager resources = new ComponentResourceManager(GetType());
+            foreach (var type in Enum.GetNames(typeof(NodeType)))
+            {
+                try
+                {
+                    treeImages.Images.Add(type, (Bitmap)resources.GetObject(type));
+                }
+                catch (Exception)
+                { }
+            }
+
+            treeImages.Images.Add(IMAGE_KEY_ARRAY_ITEM, (Bitmap)resources.GetObject(IMAGE_KEY_ARRAY_ITEM));
+
+
+            //resources.GetObject("array");
+
+            //string resxFile = @".\" + GetType().Name + ".resx";
+            //using (ResXResourceReader resxReader = new ResXResourceReader(resxFile))
+            //{
+            //    foreach (DictionaryEntry entry in resxReader)
+            //    {
+            //        if (((string)entry.Key) == (NodeType.Array.ToString()))
+            //            treeImages.Images.Add(NodeType.Array.ToString(), (Bitmap)entry.Value);                    
+            //    }
+            //}
+
+            this.ImageList = treeImages;
+        }
+
         public void ShowJson(string jsonString)
         {
             JObject json = JObject.Parse(jsonString);
-
             LoadTree(json);
         }
 
@@ -29,7 +71,7 @@ namespace Alex75.JsonViewer.WindowsForm
         {
             Nodes.Clear();            
 
-            var rootNode = new JsonTreeNode(NodeType.Object, "/");
+            var rootNode = new JsonTreeNode(NodeType.Object, "(root)");
             Nodes.Add(rootNode);
             SelectedNode = rootNode;
 
@@ -55,7 +97,7 @@ namespace Alex75.JsonViewer.WindowsForm
                 case JTokenType.String:
                     type = NodeType.Value;
                     value = item.ToString();
-                    text = string.Format($"{property}: {value}");
+                    text = CreateNodeDisplayText(property, value);
                     break;
                 case JTokenType.Array:
                     type = NodeType.Array;
@@ -68,7 +110,7 @@ namespace Alex75.JsonViewer.WindowsForm
                 default:
                     type = NodeType.Value;
                     value = item.Type.ToString();
-                    text = string.Format($"{property}: {value}");
+                    text = CreateNodeDisplayText(property, value);
                     break;
             }
 
@@ -76,6 +118,13 @@ namespace Alex75.JsonViewer.WindowsForm
             node.ImageKey = type.ToString();
             node.SelectedImageKey = node.ImageKey;
             parentNode.Nodes.Add(node);
+
+            // item of Array
+            if (property == null)
+            {
+                node.ImageKey = IMAGE_KEY_ARRAY_ITEM;
+                node.SelectedImageKey = node.ImageKey;
+            }
 
             if (item.Type == JTokenType.Array)
             {
@@ -86,6 +135,11 @@ namespace Alex75.JsonViewer.WindowsForm
             {
                 LoadObject(item as JObject, node);
             }
+        }
+
+        private string CreateNodeDisplayText(string property, string value)
+        {
+            return property == null ? value : string.Format($"{property}: {value}");
         }
 
         private void LoadArray(JToken value, JsonTreeNode node)

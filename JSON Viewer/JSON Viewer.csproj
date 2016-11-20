@@ -61,6 +61,27 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\array.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IC91302.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grey.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Array item.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Object.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Value.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
