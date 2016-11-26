@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Alex75.JsonViewer.BusinessObjects
-{    public enum NodeType
+{
+    public enum NodeType
     {
         Value,
         Array,

@@ -77,39 +77,7 @@ namespace Alex75.JsonViewer.WindowsForm
 
         private void AddNode(JsonTreeNode parentNode, string property, JToken item)
         {
-            NodeType type;
-            string text;
-            string textWhenSelected = null;
-            string value;
-            switch (item.Type)
-            {
-                case JTokenType.String:
-                    type = NodeType.Value;
-                    value = item.ToString();
-                    text = CreateValueNodeText(property, value);
-                    break;
-                case JTokenType.Array:
-                    type = NodeType.Array;
-                    text = property;
-                    break;
-                case JTokenType.Object:
-                    type = NodeType.Object;
-                    text = property;
-                    break;
-                default:
-                    type = NodeType.Value;
-                    value = item.Type.ToString();
-                    text = CreateValueNodeText(property, value);
-                    textWhenSelected = text;
-                    break;
-            }
-
-            if (type == NodeType.Value)
-                textWhenSelected = text + " (type: " + item.Type + ")";
-
-            var node = new JsonTreeNode(type, text, textWhenSelected);
-            node.ImageKey = type.ToString();
-            node.SelectedImageKey = node.ImageKey;
+            var node = JsonTreeNodeCreator.CreateNode(property, item);
             parentNode.Nodes.Add(node);
 
             // item of Array
@@ -128,11 +96,6 @@ namespace Alex75.JsonViewer.WindowsForm
             {
                 LoadObject(item as JObject, node);
             }
-        }
-
-        private string CreateValueNodeText(string property, string value)
-        {
-            return property == null ? value : string.Format($"{property}: {value}");
         }
 
         private void LoadArray(JToken value, JsonTreeNode node)

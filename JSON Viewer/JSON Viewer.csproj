@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Windows Form\JsonTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows Form\JsonTreeNodeCreator.cs" />
     <Compile Include="Windows Form\JsonTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
