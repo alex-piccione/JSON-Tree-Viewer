@@ -16,31 +16,44 @@ namespace Alex75.JsonViewer.WindowsForm
             NodeType type;
             string text;
             string textWhenSelected = null;
-            string value;
-            switch (item.Type)
+
+            //switch (item.Type)
+            //{
+            //    case JTokenType.Object:
+            //        type = NodeType.Object;
+            //        text = property;
+            //        break;
+            //    case JTokenType.Array:
+            //        type = NodeType.Array;
+            //        text = property;
+            //        break;
+            //    case JTokenType.String:
+            //    default:
+            //        type = NodeType.Value;
+            //        value = item.Type.ToString();
+            //        text = CreateValueNodeText(property, value);
+            //        textWhenSelected = text;
+            //        break;
+            //}
+
+            if (item.Type == JTokenType.Object || item.Type == JTokenType.Array)
             {
-                case JTokenType.Object:
-                    type = NodeType.Object;
-                    text = property;
-                    break;
-                case JTokenType.Array:
-                    type = NodeType.Array;
-                    text = property;
-                    break;
-                case JTokenType.String:
-                default:
-                    type = NodeType.Value;
-                    value = item.Type.ToString();
-                    text = CreateValueNodeText(property, value);
-                    textWhenSelected = text;
-                    break;
+                text = property;
+                textWhenSelected = text;
+            }
+            else
+            {
+                type = NodeType.Value;
+                text = CreateValueNodeText(property, item.ToString());
+                textWhenSelected = string.Format($"{text} (type: {item.Type})");
             }
 
-            if (type == NodeType.Value)
-                textWhenSelected = string.Format($"{text} (type: {item.Type})");
-
+            type = item.Type == JTokenType.Object ? NodeType.Object :
+                item.Type == JTokenType.Array ? NodeType.Array :
+                NodeType.Value;
+            
             var node = new JsonTreeNode(type, text, textWhenSelected);
-            node.ImageKey = type.ToString();
+            node.ImageKey = item.Type.ToString();
             node.SelectedImageKey = node.ImageKey;
 
             return node;

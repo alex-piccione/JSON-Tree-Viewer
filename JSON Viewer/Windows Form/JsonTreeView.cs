@@ -19,7 +19,6 @@ namespace Alex75.JsonViewer.WindowsForm
     [Designer("JSON Tree View")]
     public class JsonTreeView : TreeView
     {
-        private const string IMAGE_KEY_ARRAY_ITEM = "ArrayItem";
         private TreeNode previouslySelectedNode = null;
         private string previouslySelectedNodeText = null;
 
@@ -33,18 +32,18 @@ namespace Alex75.JsonViewer.WindowsForm
         {
             ImageList treeImages = new ImageList();
             treeImages.ImageSize = new Size(16, 16);
-            ComponentResourceManager images = new ComponentResourceManager(typeof(Resources.Images));
-            foreach (var type in Enum.GetNames(typeof(NodeType)))
+            ComponentResourceManager images = new ComponentResourceManager(typeof(Resources.NodeImages));
+            foreach (var type in Enum.GetNames(typeof(JTokenType)))
             {
                 try
                 {
                     treeImages.Images.Add(type, (Bitmap)images.GetObject(type));
                 }
                 catch (Exception)
-                { }
+                {
+                    treeImages.Images.Add(type, (Bitmap)images.GetObject("Undefined"));
+                }
             }
-
-            treeImages.Images.Add(IMAGE_KEY_ARRAY_ITEM, (Bitmap)images.GetObject(IMAGE_KEY_ARRAY_ITEM));
 
             this.ImageList = treeImages;            
         }
@@ -79,13 +78,6 @@ namespace Alex75.JsonViewer.WindowsForm
         {
             var node = JsonTreeNodeCreator.CreateNode(property, item);
             parentNode.Nodes.Add(node);
-
-            // item of Array
-            if (property == null)
-            {
-                node.ImageKey = IMAGE_KEY_ARRAY_ITEM;
-                node.SelectedImageKey = node.ImageKey;
-            }
 
             if (item.Type == JTokenType.Array)
             {
