@@ -20,6 +20,12 @@ namespace Alex75.JsonViewer.WindowsForm
             }
         }
 
+        public bool IsExpandable {
+            get {
+                return NodeType == NodeType.Object || NodeType == NodeType.Array;
+            }
+        }
+
         public JsonTreeNode(NodeType nodeType, string text, string textWhenSelected = null)
         {
             NodeType = nodeType;

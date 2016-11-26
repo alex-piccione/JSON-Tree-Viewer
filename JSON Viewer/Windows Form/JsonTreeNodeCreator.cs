@@ -25,7 +25,10 @@ namespace Alex75.JsonViewer.WindowsForm
             else
             {
                 type = NodeType.Value;
-                text =string.Format($"{property}: {item.ToString()}");
+                string value = item.ToString();
+                text = property == null ? 
+                    value : 
+                    string.Format($"{property}: {value}");
                 textWhenSelected = string.Format($"{text} (type: {item.Type})");
             }
 
