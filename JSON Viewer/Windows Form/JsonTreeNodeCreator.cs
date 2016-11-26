@@ -17,25 +17,6 @@ namespace Alex75.JsonViewer.WindowsForm
             string text;
             string textWhenSelected = null;
 
-            //switch (item.Type)
-            //{
-            //    case JTokenType.Object:
-            //        type = NodeType.Object;
-            //        text = property;
-            //        break;
-            //    case JTokenType.Array:
-            //        type = NodeType.Array;
-            //        text = property;
-            //        break;
-            //    case JTokenType.String:
-            //    default:
-            //        type = NodeType.Value;
-            //        value = item.Type.ToString();
-            //        text = CreateValueNodeText(property, value);
-            //        textWhenSelected = text;
-            //        break;
-            //}
-
             if (item.Type == JTokenType.Object || item.Type == JTokenType.Array)
             {
                 text = property;
@@ -44,7 +25,7 @@ namespace Alex75.JsonViewer.WindowsForm
             else
             {
                 type = NodeType.Value;
-                text = CreateValueNodeText(property, item.ToString());
+                text =string.Format($"{property}: {item.ToString()}");
                 textWhenSelected = string.Format($"{text} (type: {item.Type})");
             }
 
@@ -57,11 +38,6 @@ namespace Alex75.JsonViewer.WindowsForm
             node.SelectedImageKey = node.ImageKey;
 
             return node;
-        }
-
-        private static string CreateValueNodeText(string property, string value)
-        {
-            return property == null ? value : string.Format($"{property}: {value}");
         }
     }
 }

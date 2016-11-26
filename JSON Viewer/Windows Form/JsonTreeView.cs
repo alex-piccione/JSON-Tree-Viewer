@@ -66,10 +66,7 @@ namespace Alex75.JsonViewer.WindowsForm
             rootNode.ImageKey = rootNode.NodeType.ToString();
             rootNode.SelectedImageKey = rootNode.ImageKey;
 
-            foreach (var child in json)
-            {
-                AddNode(rootNode, child.Key, child.Value);
-            }
+            LoadObject(json, rootNode);
 
             rootNode.Expand();
         }
