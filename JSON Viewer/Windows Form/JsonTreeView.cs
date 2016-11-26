@@ -19,45 +19,34 @@ namespace Alex75.JsonViewer.WindowsForm
     [Designer("JSON Tree View")]
     public class JsonTreeView : TreeView
     {
-        private const string IMAGE_KEY_ARRAY_ITEM = "Array item";
+        private const string IMAGE_KEY_ARRAY_ITEM = "ArrayItem";
+        private TreeNode previouslySelectedNode = null;
+        private string previouslySelectedNodeText = null;
 
         public JsonTreeView()
         {
             LoadImgaeList();
+            this.AfterSelect += this_AfterSelect;
         }
 
         private void LoadImgaeList()
         {
-            //System.Resources.arra
             ImageList treeImages = new ImageList();
             treeImages.ImageSize = new Size(16, 16);
-            ComponentResourceManager resources = new ComponentResourceManager(GetType());
+            ComponentResourceManager images = new ComponentResourceManager(typeof(Resources.Images));
             foreach (var type in Enum.GetNames(typeof(NodeType)))
             {
                 try
                 {
-                    treeImages.Images.Add(type, (Bitmap)resources.GetObject(type));
+                    treeImages.Images.Add(type, (Bitmap)images.GetObject(type));
                 }
                 catch (Exception)
                 { }
             }
 
-            treeImages.Images.Add(IMAGE_KEY_ARRAY_ITEM, (Bitmap)resources.GetObject(IMAGE_KEY_ARRAY_ITEM));
+            treeImages.Images.Add(IMAGE_KEY_ARRAY_ITEM, (Bitmap)images.GetObject(IMAGE_KEY_ARRAY_ITEM));
 
-
-            //resources.GetObject("array");
-
-            //string resxFile = @".\" + GetType().Name + ".resx";
-            //using (ResXResourceReader resxReader = new ResXResourceReader(resxFile))
-            //{
-            //    foreach (DictionaryEntry entry in resxReader)
-            //    {
-            //        if (((string)entry.Key) == (NodeType.Array.ToString()))
-            //            treeImages.Images.Add(NodeType.Array.ToString(), (Bitmap)entry.Value);                    
-            //    }
-            //}
-
-            this.ImageList = treeImages;
+            this.ImageList = treeImages;            
         }
 
         public void ShowJson(string jsonString)
@@ -88,16 +77,16 @@ namespace Alex75.JsonViewer.WindowsForm
 
         private void AddNode(JsonTreeNode parentNode, string property, JToken item)
         {
-            JsonTreeNode node;
             NodeType type;
             string text;
+            string textWhenSelected = null;
             string value;
             switch (item.Type)
             {
                 case JTokenType.String:
                     type = NodeType.Value;
                     value = item.ToString();
-                    text = CreateNodeDisplayText(property, value);
+                    text = CreateValueNodeText(property, value);
                     break;
                 case JTokenType.Array:
                     type = NodeType.Array;
@@ -110,11 +99,15 @@ namespace Alex75.JsonViewer.WindowsForm
                 default:
                     type = NodeType.Value;
                     value = item.Type.ToString();
-                    text = CreateNodeDisplayText(property, value);
+                    text = CreateValueNodeText(property, value);
+                    textWhenSelected = text;
                     break;
             }
 
-            node = new JsonTreeNode(type, text);
+            if (type == NodeType.Value)
+                textWhenSelected = text + " (type: " + item.Type + ")";
+
+            var node = new JsonTreeNode(type, text, textWhenSelected);
             node.ImageKey = type.ToString();
             node.SelectedImageKey = node.ImageKey;
             parentNode.Nodes.Add(node);
@@ -137,7 +130,7 @@ namespace Alex75.JsonViewer.WindowsForm
             }
         }
 
-        private string CreateNodeDisplayText(string property, string value)
+        private string CreateValueNodeText(string property, string value)
         {
             return property == null ? value : string.Format($"{property}: {value}");
         }
@@ -158,5 +151,21 @@ namespace Alex75.JsonViewer.WindowsForm
             }
         }
 
+        #region UI events
+
+        private void this_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            // restore previous seelcted node text and store the next
+            if (previouslySelectedNode != null)
+            {
+                previouslySelectedNode.Text = previouslySelectedNodeText;
+            }
+            previouslySelectedNode = e.Node;
+            previouslySelectedNodeText = e.Node.Text;
+
+            e.Node.Text = ((JsonTreeNode)e.Node).TextWhenSelected;
+        }
+
+        #endregion
     }
 }

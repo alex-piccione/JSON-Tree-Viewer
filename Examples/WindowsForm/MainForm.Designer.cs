@@ -30,6 +30,7 @@ namespace WindowsForm
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.loadJsonButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.jsonTreeView = new Alex75.JsonViewer.WindowsForm.JsonTreeView();
@@ -54,15 +55,17 @@ namespace WindowsForm
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(282, 54);
+            this.topPanel.Size = new System.Drawing.Size(482, 54);
             this.topPanel.TabIndex = 2;
             // 
             // jsonTreeView
             // 
             this.jsonTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jsonTreeView.ImageIndex = 0;
             this.jsonTreeView.Location = new System.Drawing.Point(0, 0);
             this.jsonTreeView.Name = "jsonTreeView";
-            this.jsonTreeView.Size = new System.Drawing.Size(282, 199);
+            this.jsonTreeView.SelectedImageIndex = 0;
+            this.jsonTreeView.Size = new System.Drawing.Size(482, 399);
             this.jsonTreeView.TabIndex = 0;
             // 
             // panel1
@@ -71,14 +74,14 @@ namespace WindowsForm
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 199);
+            this.panel1.Size = new System.Drawing.Size(482, 399);
             this.panel1.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(482, 453);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.topPanel);
             this.Name = "MainForm";

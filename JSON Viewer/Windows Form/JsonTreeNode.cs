@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Alex75.JsonViewer.BusinessObjects;
+using Newtonsoft.Json.Linq;
 
 namespace Alex75.JsonViewer.WindowsForm
 {
@@ -13,10 +14,19 @@ namespace Alex75.JsonViewer.WindowsForm
     {        
         public NodeType NodeType { get; set; }
 
-        public JsonTreeNode(NodeType nodeType, string text)
+        public string TextWhenSelected {
+            get {
+                return textWhenSelected;
+            }
+        }
+
+        public JsonTreeNode(NodeType nodeType, string text, string textWhenSelected = null)
         {
             NodeType = nodeType;
             Text = text;
+            this.textWhenSelected = textWhenSelected ?? text;            
         }
+
+        private string textWhenSelected;
     }
 }
