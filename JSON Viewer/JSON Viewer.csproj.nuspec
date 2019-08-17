@@ -8,7 +8,7 @@
     <title>Alex75.JsonViewer</title>
     <description>Windows Form control for showing a JSON file content.</description>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Currently under development.</releaseNotes>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags></tags>
     <dependencies>

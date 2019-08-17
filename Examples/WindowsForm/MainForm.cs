@@ -18,18 +18,15 @@ namespace WindowsForm
             InitializeComponent();
         }
 
-        private void loadJsonButton_Click(object sender, EventArgs e)
-        {
-            string file = "Data\\Example.json";
+        private void loadJsonButton_1_Click(object sender, EventArgs e) => LoadJson("Data\\Example 01.json");
+        private void loadJsonButton_2_Click(object sender, EventArgs e) => LoadJson("Data\\Example 02.json");
 
-            string json = null;
-            using (var reader = new StreamReader(File.OpenRead(file)))
-            {
-                json = reader.ReadToEnd();
-            }
 
+        private void LoadJson(string file)
+        {       
             try
             {
+                var json = File.ReadAllText(file);
                 jsonTreeView.ShowJson(json);
             }
             catch (Exception exc)

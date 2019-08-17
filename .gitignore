@@ -1,3 +1,7 @@
 *.nupkg
 packages/
 **/$RANDOM_SEED$
+.vs/
+
+Examples/WindowsForm/obj/
+Examples/WindowsForm/bin/

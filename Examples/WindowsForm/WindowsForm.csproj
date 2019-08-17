@@ -33,9 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,7 +70,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Data\Example.json">
+    <EmbeddedResource Include="Data\Example 01.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Example 02.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -89,8 +91,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Array.bmp" />
+    <Content Include="Images\Boolean.jpg" />
+    <Content Include="Images\Date.jpg" />
+    <Content Include="Images\Float.jpg" />
+    <Content Include="Images\Guid.jpg" />
+    <Content Include="Images\Integer.jpg" />
+    <Content Include="Images\None.jpg" />
+    <Content Include="Images\Null.jpg" />
+    <Content Include="Images\Object.bmp" />
+    <Content Include="Images\String.jpg" />
+    <Content Include="Images\TimeSpan.jpg" />
+    <Content Include="Resources\Type to color associations.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\JSON Viewer\JSON Viewer.csproj">
-      <Project>{EB2E042C-5214-441B-863E-E528B4D0AB50}</Project>
+      <Project>{eb2e042c-5214-441b-863e-e528b4d0ab50}</Project>
       <Name>JSON Viewer</Name>
     </ProjectReference>
   </ItemGroup>
